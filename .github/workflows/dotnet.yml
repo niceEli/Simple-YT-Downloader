@@ -28,7 +28,10 @@ jobs:
       run: dotnet test --no-build --verbosity normal
     - name: Get Short Commit Tag
       id: get_short_commit_tag
-      run: echo "::set-output name=short_commit_tag::${{ github.sha }} | cut -c1-5"
+      run: echo "::set-output name=short_commit_tag::${{ github.sha }}-${{ github.sha }}-short" # We will use a placeholder for now
+    - name: Set Short Commit Tag
+      id: set_short_commit_tag
+      run: echo "::set-output name=short_commit_tag::${{ steps.get_short_commit_tag.outputs.short_commit_tag | substring(0, 5) }}"
     - name: Zip built files
       run: zip -r built_files.zip . -i ./Simple-YT-Downloader/bin/Debug/net7.0/*
     - name: Create Release
@@ -37,9 +40,9 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: "1.${{ github.run_number }}.${{ steps.get_short_commit_tag.outputs.short_commit_tag }}"
-        release_name: "Release 1.${{ github.run_number }}.${{ steps.get_short_commit_tag.outputs.short_commit_tag }}"
-        body: "Release ${{ steps.get_short_commit_tag.outputs.short_commit_tag }} built on ${{ github.run_number }}."
+        tag_name: "1.${{ github.run_number }}.${{ steps.set_short_commit_tag.outputs.short_commit_tag }}"
+        release_name: "Release 1.${{ github.run_number }}.${{ steps.set_short_commit_tag.outputs.short_commit_tag }}"
+        body: "Release ${{ steps.set_short_commit_tag.outputs.short_commit_tag }} built on ${{ github.run_number }}."
         draft: false
         prerelease: false
     - name: Upload Release Asset
