@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "3LaIaY+jKBt9tHX9KSSIjaXK83zGIWDrEHp3NTla5U+jqnwceKdQXHnGoeptEqWuBaEh1sVcBxfCuIX/gKyLyg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\EliAv\\Downloads\\Unhity\\Simple-YT-Downloader\\Simple-YT-Downloader.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\EliAv\\.nuget\\packages\\anglesharp\\1.0.3\\anglesharp.1.0.3.nupkg.sha512",
+    "C:\\Users\\EliAv\\.nuget\\packages\\system.text.encoding.codepages\\7.0.0\\system.text.encoding.codepages.7.0.0.nupkg.sha512",
+    "C:\\Users\\EliAv\\.nuget\\packages\\youtubeexplode\\6.2.16\\youtubeexplode.6.2.16.nupkg.sha512"
+  ],
+  "logs": []
+}
