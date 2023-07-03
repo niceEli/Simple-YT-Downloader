@@ -28,7 +28,7 @@ jobs:
       run: dotnet test --no-build --verbosity normal
     - name: Get Short Commit Tag
       id: get_short_commit_tag
-      run: echo "::set-output name=short_commit_tag::${{ github.sha | slice(0, 5) }}"
+      run: echo "::set-output name=short_commit_tag::${{ github.sha }} | cut -c1-5"
     - name: Zip built files
       run: zip -r built_files.zip . -i ./Simple-YT-Downloader/bin/Debug/net7.0/*
     - name: Create Release
