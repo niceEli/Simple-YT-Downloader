@@ -27,7 +27,7 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Zip built files
-      run: zip -r built_files.zip ./Simple-YT-Downloader/bin/Debug/net7.0/*
+      run: zip -r built_files.zip . -i ./Simple-YT-Downloader/bin/Debug/net7.0/*
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
